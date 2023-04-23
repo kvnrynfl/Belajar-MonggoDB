@@ -12,14 +12,13 @@ require('dotenv').config();
 })();
 
 (async () => {
-    // Create a new user post object
-    const article = new userModel({
-        userId: 2242803,
-        userName: 'testdoang',
-        userTag: 6315,
-    });
-
-    // Insert the article in our MongoDB database
+    const article = await Blog.findById("6247589060c9b6abfa1ef530").exec();
+    article.title = "Updated Title";
     await article.save();
+    console.log(article);
 })();
+
+
+
+
 
